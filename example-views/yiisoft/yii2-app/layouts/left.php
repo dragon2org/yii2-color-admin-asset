@@ -1,69 +1,65 @@
-<aside class="main-sidebar">
+<!-- begin #sidebar -->
+<div id="sidebar" class="sidebar">
+    <!-- begin sidebar scrollbar -->
+    <div data-scrollbar="true" data-height="100%">
+        <!-- begin sidebar user -->
+        <ul class="nav">
+            <li class="nav-profile">
+                <div class="image">
+                    <a href="javascript:;"><img src="<?= $directoryAsset ?>/img/user-13.jpg" alt="" /></a>
+                </div>
+                <div class="info">
+                    Sean Ngu
+                    <small>Front end developer</small>
+                </div>
+            </li>
+        </ul>
+        <!-- end sidebar user -->
 
-    <section class="sidebar">
-
-        <!-- Sidebar user panel -->
-        <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-            </div>
-            <div class="pull-left info">
-                <p>Alexander Pierce</p>
-
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-            </div>
-        </div>
-
-        <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-              <span class="input-group-btn">
-                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-            </div>
-        </form>
-        <!-- /.search form -->
-
-        <?= coloradmin\widgets\Menu::widget(
+        <!-- begin sidebar nav -->
+        <?php
+        //$menu = \mdm\admin\components\MenuHelper::getAssignedMenu(0);
+        ?>
+        <?= pd\coloradmin\widgets\Menu::widget(
             [
-                'options' => ['class' => 'sidebar-menu'],
+                'options' => ['class' => 'nav'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
+                    ['label' => 'Navigation', 'options' => ['class' => 'nav-header']],
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',
-                        'icon' => 'share',
-                        'url' => '#',
+                        'url' => 'javascript:;',
+                        'options' => ['class'=>'has-sub'],
                         'items' => [
-                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug'],],
-                            [
-                                'label' => 'Level One',
-                                'icon' => 'circle-o',
-                                'url' => '#',
-                                'items' => [
-                                    ['label' => 'Level Two', 'icon' => 'circle-o', 'url' => '#',],
-                                    [
-                                        'label' => 'Level Two',
-                                        'icon' => 'circle-o',
-                                        'url' => '#',
-                                        'items' => [
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                            ['label' => 'Level Three', 'icon' => 'circle-o', 'url' => '#',],
-                                        ],
-                                    ],
-                                ],
-                            ],
+                            ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
+                            ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
+                        ],
+                    ],
+                    [
+                        'label' => '权限管理',
+                        'url' => 'javascript:;',
+                        'options' => ['class'=>'has-sub'],
+                        'items' => [
+                            ['label' => '路由管理',  'url' => ['/admin/route']],
+                            ['label' => '权限管理',  'url' => ['/admin/permission']],
+                            ['label' => '菜单管理',  'url' => ['/admin/menu']],
+                            ['label' => '角色管理',  'url' => ['/admin/role']],
+                            ['label' => '权限分配',  'url' => ['/admin/assignment']],
+                            ['label' => '用户管理',  'url' => ['/admin/user']],
                         ],
                     ],
                 ],
             ]
         ) ?>
-
-    </section>
-
-</aside>
+            <!-- begin sidebar minify button -->
+            <li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+            <!-- end sidebar minify button -->
+        </ul>
+        <!-- end sidebar nav -->
+    </div>
+    <!-- end sidebar scrollbar -->
+</div>
+<div class="sidebar-bg"></div>
+<!-- end #sidebar -->
