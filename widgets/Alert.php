@@ -34,28 +34,28 @@ class Alert extends Widget
      * - $key is the name of the session flash variable
      * - $value is the array:
      *       - class of alert type (i.e. danger, success, info, warning)
-     *       - icon for alert AdminLTE
+     *       - icon for icon <i class="fa fa-warning"></i>
      */
     public $alertTypes = [
         'error' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="icon fa fa-ban"></i>',
+            'icon' => '<i class=""></i>',
         ],
         'danger' => [
             'class' => 'alert-danger',
-            'icon' => '<i class="icon fa fa-ban"></i>',
+            'icon' => '<i class=""></i>',
         ],
         'success' => [
             'class' => 'alert-success',
-            'icon' => '<i class="icon fa fa-check"></i>',
+            'icon' => '<i class=""></i>',
         ],
         'info' => [
             'class' => 'alert-info',
-            'icon' => '<i class="icon fa fa-info"></i>',
+            'icon' => '<i class=""></i>',
         ],
         'warning' => [
             'class' => 'alert-warning',
-            'icon' => '<i class="icon fa fa-warning"></i>',
+            'icon' => '<i class=""></i>',
         ],
     ];
 

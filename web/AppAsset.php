@@ -21,6 +21,7 @@ class AppAsset extends BaseColorAdminAsset
     ];
 
     public $js = [
+        'js/poker-dragon.js',
         'js/apps.min.js',
     ];
 
@@ -33,5 +34,6 @@ class AppAsset extends BaseColorAdminAsset
         'pd\coloradmin\web\plugins\JqueryUiAsset',
         'pd\coloradmin\web\plugins\JquerySlimScrollAsset',
         'pd\coloradmin\web\plugins\JqueryCookieAsset',
+        'pd\coloradmin\web\plugins\SweetAlertAsset',
     ];
 }
