@@ -60,7 +60,7 @@ class Menu extends \yii\widgets\Menu
     /**
      * @inheritdoc
      */
-    protected function renderItem($item)
+    protected function renderItem($item, $is_sub = false)
     {
         if(isset($item['items'])) {
             $labelTemplate = '<a href="{url}">{icon} {label} <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>';
@@ -73,6 +73,10 @@ class Menu extends \yii\widgets\Menu
 
         if (isset($item['url'])) {
             $template = ArrayHelper::getValue($item, 'template', $linkTemplate);
+
+            //主题样式不兼容二级菜单的暂时写法
+            $icon = !$is_sub ? $this->defaultIconHtml : '';
+
             $replace = !empty($item['icon']) ? [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
@@ -80,7 +84,7 @@ class Menu extends \yii\widgets\Menu
             ] : [
                 '{url}' => Url::to($item['url']),
                 '{label}' => '<span>'.$item['label'].'</span>',
-                '{icon}' => $this->defaultIconHtml,
+                '{icon}' => $icon,
             ];
             return strtr($template, $replace);
         } else {
@@ -100,7 +104,7 @@ class Menu extends \yii\widgets\Menu
      * @param array $items the menu items to be rendered recursively
      * @return string the rendering result
      */
-    protected function renderItems($items)
+    protected function renderItems($items, $is_sub = false)
     {
         $n = count($items);
         $lines = [];
@@ -124,11 +128,11 @@ class Menu extends \yii\widgets\Menu
                     $options['class'] .= ' ' . implode(' ', $class);
                 }
             }
-            $menu = $this->renderItem($item);
+            $menu = $this->renderItem($item, $is_sub);
             if (!empty($item['items'])) {
                 $menu .= strtr($this->submenuTemplate, [
                     '{show}' => $item['active'] ? "style='display: block'" : '',
-                    '{items}' => $this->renderItems($item['items']),
+                    '{items}' => $this->renderItems($item['items'], true),
                 ]);
             }
             $lines[] = Html::tag($tag, $menu, $options);
