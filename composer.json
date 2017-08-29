@@ -1,0 +1,18 @@
+{
+  "name": "pokerDragon/yii2-color-admin-asset",
+  "description": "This a backend theme base on color admin",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Poker Dragon",
+      "email": "377304925@qq.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {
+      "pokerDragon\\colorAdmin\\": ""
+    }
+  }
+}
